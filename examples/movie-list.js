@@ -5,9 +5,9 @@
  * a list of movies from yts.
  */
 
-const YtsApi = require('../')
+const YtsApi = require('../');
 
-const ytsApi = new YtsApi()
+const ytsApi = new YtsApi();
 
 ytsApi.getMovies({
   limit: 20,
@@ -17,5 +17,5 @@ ytsApi.getMovies({
   orderBy: 'desc',
   withRtRatings: true
 }).then(res => {
-  console.log(res)
+  console.log(res.data.movies);
 });

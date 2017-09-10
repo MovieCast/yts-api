@@ -7,7 +7,7 @@ class YtsAPI {
      * Create a new instance of YtsAPI.
      * @param {Object} config - The configuration for the api.
      */
-    constructor({baseUrl = 'http://yts.aq/api/v2/'}) {
+    constructor({baseUrl = 'http://yts.ag/api/v2/'} = {}) {
 
         /**
          * The base url of yts.
@@ -22,13 +22,16 @@ class YtsAPI {
      * @param {Object} query - The query parameters of the HTTP request.
      * @returns {Promise} - The response body.
      */
-    get(endpoint, query) {
+    async get(endpoint, query) {
         const uri = `${this.baseUrl}${endpoint}`;
     
-        return got.get(uri, {
+        const res = await got.get(uri, {
             query,
             json: true
-        }).then(({ body }) => body);
+        });
+
+
+        return res.body;
     }
 
     /**
@@ -46,20 +49,20 @@ class YtsAPI {
         sortyBy = 'date_added',
         orderBy = 'desc',
         withRtRatings = false
-    }) {
+    } = {}) {
         
         // Yay a lot of checks, some ppl might want 1337 movies at once, we can't accept that!
         if (limit < 1 || limit > 50) {
-            throw new Error(`${limit} is not a valid value for limit!`)
+            throw new Error(`${limit} is not a valid value for limit, expected a number in the range of 1 - 50!`)
         }
         if (minimumRating < 0 || minimumRating > 9) {
             throw new Error(
-                `${minimumRating} is not a valid value for minimumRating!`
+                `${minimumRating} is not a valid value for minimumRating, expected a number in the range of 0 - 9!`
             )
         }
         if (typeof withRtRatings !== 'boolean') {
             throw new Error(
-                `${withRtRatings} is not a valid value for withRtRatings!`
+                `${withRtRatings} is not a valid value for withRtRatings, expected an boolean!`
             )
         }
 
@@ -82,17 +85,17 @@ class YtsAPI {
      * @param {Object} options - Some extra options.
      * @returns {Promise} - A movie from yts.
      */
-    getMovie(id, {withImages = false, withCast = false}) {
+    getMovie(id, {withImages = false, withCast = false} = {}) {
 
         // Checkssssss
         if (!id || typeof id !== 'number') {
-            throw new Error(`${id} is not a valid value for id!`)
+            throw new Error(`${id} is not a valid value for id, expected an number!`)
         }
         if (typeof withImages !== 'boolean') {
-            throw new Error(`${withImages} is not a valid value for withImages!`)
+            throw new Error(`${withImages} is not a valid value for withImages, expected an boolean!`)
         }
         if (typeof withCast !== 'boolean') {
-            throw new Error(`${withCast} is not a valid value for withCast!`)
+            throw new Error(`${withCast} is not a valid value for withCast, expected an boolean!`)
         }
 
         return this.get('movie_details.json', {
