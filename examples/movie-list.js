@@ -1,6 +1,6 @@
 /**
  * Example: Movie List
- * 
+ *
  * Below is an example on how you can get
  * a list of movies from yts.
  */
@@ -15,7 +15,7 @@ ytsApi.getMovies({
   quality: '1080p',
   sortBy: 'date_added',
   orderBy: 'desc',
-  withRtRatings: true
-}).then(res => {
+  withRtRatings: true,
+}).then((res) => {
   console.log(res.data.movies);
 });
