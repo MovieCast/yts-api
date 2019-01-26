@@ -9,6 +9,9 @@ yarn-error.log*
 coverage
 .nyc_output
 
+# Compiled output
+lib
+
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
