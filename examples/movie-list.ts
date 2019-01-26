@@ -5,11 +5,11 @@
  * a list of movies from yts.
  */
 
-const YtsApi = require('../');
+import { YtsApi } from "../src/YtsApi";
 
 const ytsApi = new YtsApi();
 
-ytsApi.getMovies({
+ytsApi.getMovieList({
   limit: 20,
   page: 1,
   quality: '1080p',
