@@ -27,7 +27,7 @@ export class YtsApi {
      * Gets a list of movies from yts
      * @param query     The query
      */
-    public async getMovieList({
+    public getMovieList({
         limit = 20,
         page = 1,
         quality = "All",
@@ -67,7 +67,7 @@ export class YtsApi {
      * @param id        The movie id
      * @param options   Extra options
      */
-    public async getMovieDetails(id: number, {
+    public getMovieDetails(id: number, {
         withCast = false,
         withImages = false,
     }: IYtsMovieQuery = {}) {
