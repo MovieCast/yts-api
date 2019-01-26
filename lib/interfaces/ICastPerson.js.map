@@ -1,0 +1,1 @@
+{"version":3,"file":"ICastPerson.js","sourceRoot":"","sources":["../../src/interfaces/ICastPerson.ts"],"names":[],"mappings":"","sourcesContent":["export interface IYtsCastPerson {\r\n    name: string;\r\n    character_name: string;\r\n    url_small_image: string;\r\n    imdb_code: string;\r\n}\r\n"]}

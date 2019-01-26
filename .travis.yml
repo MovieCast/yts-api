@@ -1,8 +1,8 @@
 language: node_js
 
 node_js:
-  - "7"
-  - "8"
+  - "9"
+  - "10"
 
 cache:
   directories:
@@ -17,6 +17,3 @@ scripts:
 
 after_success:
   - npm run coveralls
-
-notifications:
-  webhooks: http://travis.moviecast.xyz/webhook

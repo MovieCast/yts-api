@@ -5,11 +5,11 @@
  * a single movie by id from yts.
  */
 
-const YtsApi = require('../');
+import { YtsApi } from "../src/YtsApi";
 
 const ytsApi = new YtsApi();
 
-ytsApi.getMovie(5512, {
+ytsApi.getMovieDetails(5512, {
   withImages: true,
   withCast: true,
 }).then((res) => {
