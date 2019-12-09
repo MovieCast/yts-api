@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/MovieCast/yts-api#readme",
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^10.0.3"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
